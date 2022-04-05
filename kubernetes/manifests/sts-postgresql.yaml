@@ -80,8 +80,10 @@ spec:
       - emptyDir:
           medium: Memory
         name: dshm
-      - emptyDir: {}
-        name: data     
+      - persistentVolumeClaim:
+        claimName: longhorn-vol-pvc
+      #- emptyDir: {}
+      #  name: data     
   updateStrategy:
     rollingUpdate:
       partition: 0
