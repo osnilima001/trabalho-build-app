@@ -80,9 +80,16 @@ spec:
       - emptyDir:
           medium: Memory
         name: dshm
-      - persistentVolumeClaim:
-        claimName: longhorn-vol-pvc
-      #- emptyDir: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: longhorn-vol-pvc
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: longhorn
+        resources:
+          requests:
+            storage: 10Gi
+        #- emptyDir: {}
       #  name: data     
   updateStrategy:
     rollingUpdate:
