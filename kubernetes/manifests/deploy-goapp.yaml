@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: goapp
-  name: app
+  name: goapp
 spec:
   replicas: 1
   selector:
